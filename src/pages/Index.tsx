@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useUser } from "../App";
@@ -11,7 +10,7 @@ const Index = () => {
       {/* Navigation */}
       <nav className="bg-white shadow-sm p-4">
         <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-xl font-bold text-fashion-deep-purple">StyleSync AI</h1>
+          <h1 className="text-xl font-bold text-fashion-deep-purple">BroDrobe AI</h1>
           <div className="space-x-4">
             {user ? (
               <Link to="/dashboard">
@@ -101,7 +100,7 @@ const Index = () => {
       <footer className="bg-fashion-dark-gray text-white py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="mb-4 md:mb-0">© 2025 StyleSync AI. All rights reserved.</p>
+            <p className="mb-4 md:mb-0">© 2025 BroDrobe AI. All rights reserved.</p>
             <div className="flex space-x-6">
               <a href="#" className="hover:text-fashion-purple transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-fashion-purple transition-colors">Terms of Service</a>
