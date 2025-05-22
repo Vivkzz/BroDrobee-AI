@@ -5,69 +5,83 @@
 /* Curvy, trendy card style */
 .fashion-card {
   background: var(--color-surface) !important;
-  border-radius: 2.5rem !important;
-  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.04) !important;
-  padding: 2rem !important;
+  border-radius: 3rem !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.06) !important;
+  padding: 2.5rem !important;
   margin-bottom: 2rem !important;
   border: none !important;
+  backdrop-filter: blur(8px) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.fashion-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.08) !important;
 }
 
 /* Buttons */
 .fashion-button {
-  background: var(--color-primary) !important;
+  background: var(--color-gradient) !important;
   color: var(--color-accent) !important;
-  border-radius: 2rem !important;
-  padding: 0.75rem 2rem !important;
+  border-radius: 2.5rem !important;
+  padding: 0.85rem 2.5rem !important;
   font-weight: 600 !important;
   border: none !important;
-  transition: background 0.2s, box-shadow 0.2s !important;
-  box-shadow: 0 2px 8px 0 rgba(255, 0, 84, 0.10) !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 16px 0 rgba(255, 51, 102, 0.15) !important;
   letter-spacing: 0.03em;
+  position: relative;
+  overflow: hidden;
 }
 
 .fashion-button:hover {
-  background: var(--color-secondary) !important;
-  color: #fff !important;
-  box-shadow: 0 4px 16px 0 rgba(0, 153, 255, 0.12) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px 0 rgba(0, 204, 255, 0.2) !important;
 }
 
 /* Inputs */
 .fashion-input {
-  border-radius: 1.5rem !important;
-  border: 1.5px solid var(--color-primary) !important;
-  padding: 0.75rem 1.25rem !important;
-  background: #fff !important;
+  border-radius: 2rem !important;
+  border: 2px solid rgba(255, 51, 102, 0.1) !important;
+  padding: 1rem 1.5rem !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   color: var(--color-text) !important;
   outline: none !important;
-  transition: border 0.2s !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(4px) !important;
 }
 
 .fashion-input:focus {
-  border-color: var(--color-secondary) !important;
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 4px rgba(255, 51, 102, 0.1) !important;
 }
 
 /* Chat bubbles */
 .bg-fashion-purple {
-  background: var(--color-primary) !important;
+  background: var(--color-gradient) !important;
   color: #fff !important;
-  border-radius: 1.5rem 1.5rem 0.5rem 1.5rem !important;
+  border-radius: 2rem 2rem 0.5rem 2rem !important;
+  box-shadow: 0 4px 16px 0 rgba(255, 51, 102, 0.1) !important;
 }
 
 .bg-fashion-dark-purple {
-  background: #ff0054 !important;
+  background: var(--color-primary) !important;
   color: #fff !important;
 }
 
 .bg-fashion-light-gray {
-  background: #f9f9fb !important;
+  background: rgba(249, 249, 251, 0.9) !important;
+  backdrop-filter: blur(8px) !important;
 }
 
 /* Trendy curvy nav */
 nav {
-  border-radius: 2rem !important;
+  border-radius: 3rem !important;
   background: var(--color-gradient-2) !important;
   color: #fff !important;
-  box-shadow: 0 2px 16px 0 rgba(0, 153, 255, 0.10) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 204, 255, 0.15) !important;
+  backdrop-filter: blur(8px) !important;
+  padding: 1rem 2rem !important;
 }
 
 /* Accent for headings */
@@ -75,7 +89,9 @@ h1,
 h2,
 h3,
 h4 {
-  color: var(--color-primary) !important;
+  background: var(--color-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
   font-family: 'Poppins', 'Inter', Arial, sans-serif !important;
   font-weight: 700 !important;
   letter-spacing: 0.01em;
@@ -91,7 +107,7 @@ h4 {
 .rounded-lg,
 .rounded-md,
 .rounded {
-  border-radius: 2rem !important;
+  border-radius: 2.5rem !important;
 }
 
 /* Gradient accent for progress bars, etc. */
@@ -119,35 +135,25 @@ h4 {
 }
 
 /* Make chat bubbles more minimalist */
-.bg-fashion-purple,
-.bg-fashion-dark-purple {
-  border-radius: 1.5rem 1.5rem 0.5rem 1.5rem !important;
-  background: var(--color-primary) !important;
-  color: #fff !important;
-}
-
 .bg-gray-100 {
-  background: #f9f9fb !important;
+  background: rgba(249, 249, 251, 0.9) !important;
   color: var(--color-text) !important;
-  border-radius: 1.5rem 1.5rem 1.5rem 0.5rem !important;
+  border-radius: 2rem 2rem 2rem 0.5rem !important;
+  backdrop-filter: blur(8px) !important;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.04) !important;
 }
 
 :root {
-  /* Modern GenZ-inspired palette */
-  --color-primary: #ff0054;
-  /* Bold raspberry red */
-  --color-secondary: #0099ff;
-  /* Vibrant blue */
+  /* Enhanced GenZ-inspired palette */
+  --color-primary: #FF3366;  /* Vibrant raspberry */
+  --color-secondary: #00CCFF;  /* Electric blue */
   --color-accent: #fff;
-  /* White accent */
-  --color-bg: #f9f9fb;
-  /* Minimalist light background */
+  --color-bg: #FAFAFF;  /* Slightly cooler background */
   --color-surface: #fff;
-  /* Card/Surface white */
-  --color-gradient: linear-gradient(135deg, #ff0054 0%, #0099ff 100%);
-  --color-gradient-2: linear-gradient(135deg, #0099ff 0%, #ff0054 100%);
-  --color-text: #18181b;
-  --color-muted: #a1a1aa;
+  --color-gradient: linear-gradient(135deg, #FF3366 0%, #00CCFF 100%);
+  --color-gradient-2: linear-gradient(135deg, #00CCFF 0%, #FF3366 100%);
+  --color-text: #1A1A2E;  /* Deeper text color */
+  --color-muted: #8B8B9E;  /* Softer muted color */
 }
 
 body {
