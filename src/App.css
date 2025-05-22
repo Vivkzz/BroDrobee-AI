@@ -6,7 +6,7 @@
 .fashion-card {
   background: var(--color-surface) !important;
   border-radius: 2.5rem !important;
-  box-shadow: 0 4px 32px 0 rgba(127, 90, 240, 0.08) !important;
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.04) !important;
   padding: 2rem !important;
   margin-bottom: 2rem !important;
   border: none !important;
@@ -14,19 +14,21 @@
 
 /* Buttons */
 .fashion-button {
-  background: var(--color-gradient) !important;
-  color: #fff !important;
+  background: var(--color-primary) !important;
+  color: var(--color-accent) !important;
   border-radius: 2rem !important;
   padding: 0.75rem 2rem !important;
   font-weight: 600 !important;
   border: none !important;
   transition: background 0.2s, box-shadow 0.2s !important;
-  box-shadow: 0 2px 8px 0 rgba(127, 90, 240, 0.10) !important;
+  box-shadow: 0 2px 8px 0 rgba(255, 0, 84, 0.10) !important;
+  letter-spacing: 0.03em;
 }
 
 .fashion-button:hover {
-  background: var(--color-gradient-2) !important;
-  box-shadow: 0 4px 16px 0 rgba(127, 90, 240, 0.15) !important;
+  background: var(--color-secondary) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 16px 0 rgba(0, 153, 255, 0.12) !important;
 }
 
 /* Inputs */
@@ -41,23 +43,23 @@
 }
 
 .fashion-input:focus {
-  border-color: var(--color-accent) !important;
+  border-color: var(--color-secondary) !important;
 }
 
 /* Chat bubbles */
 .bg-fashion-purple {
-  background: var(--color-gradient) !important;
+  background: var(--color-primary) !important;
   color: #fff !important;
-  border-radius: 2rem 2rem 0.5rem 2rem !important;
+  border-radius: 1.5rem 1.5rem 0.5rem 1.5rem !important;
 }
 
 .bg-fashion-dark-purple {
-  background: #7f5af0 !important;
+  background: #ff0054 !important;
   color: #fff !important;
 }
 
 .bg-fashion-light-gray {
-  background: #f8fafc !important;
+  background: #f9f9fb !important;
 }
 
 /* Trendy curvy nav */
@@ -65,7 +67,7 @@ nav {
   border-radius: 2rem !important;
   background: var(--color-gradient-2) !important;
   color: #fff !important;
-  box-shadow: 0 2px 16px 0 rgba(44, 182, 125, 0.10) !important;
+  box-shadow: 0 2px 16px 0 rgba(0, 153, 255, 0.10) !important;
 }
 
 /* Accent for headings */
@@ -76,6 +78,7 @@ h4 {
   color: var(--color-primary) !important;
   font-family: 'Poppins', 'Inter', Arial, sans-serif !important;
   font-weight: 700 !important;
+  letter-spacing: 0.01em;
 }
 
 /* Muted text */
@@ -102,28 +105,56 @@ h4 {
   border: none !important;
 }
 
+/* Minimalist tweaks */
+.fashion-card,
+.fashion-button,
+.fashion-input {
+  box-shadow: none !important;
+}
+
+/* Remove text-shadows, extra borders, and keep everything clean */
+* {
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* Make chat bubbles more minimalist */
+.bg-fashion-purple,
+.bg-fashion-dark-purple {
+  border-radius: 1.5rem 1.5rem 0.5rem 1.5rem !important;
+  background: var(--color-primary) !important;
+  color: #fff !important;
+}
+
+.bg-gray-100 {
+  background: #f9f9fb !important;
+  color: var(--color-text) !important;
+  border-radius: 1.5rem 1.5rem 1.5rem 0.5rem !important;
+}
+
 :root {
-  /* GenZ-inspired color palette */
-  --color-primary: #7f5af0;
-  /* Purple */
-  --color-secondary: #2cb67d;
-  /* Mint Green */
-  --color-accent: #f15bb5;
-  /* Pink */
-  --color-bg: #f8fafc;
-  /* Light background */
-  --color-surface: #fff1f8;
-  /* Soft surface */
-  --color-gradient: linear-gradient(135deg, #7f5af0 0%, #f15bb5 100%);
-  --color-gradient-2: linear-gradient(135deg, #2cb67d 0%, #7f5af0 100%);
-  --color-text: #16161a;
-  --color-muted: #94a1b2;
+  /* Modern GenZ-inspired palette */
+  --color-primary: #ff0054;
+  /* Bold raspberry red */
+  --color-secondary: #0099ff;
+  /* Vibrant blue */
+  --color-accent: #fff;
+  /* White accent */
+  --color-bg: #f9f9fb;
+  /* Minimalist light background */
+  --color-surface: #fff;
+  /* Card/Surface white */
+  --color-gradient: linear-gradient(135deg, #ff0054 0%, #0099ff 100%);
+  --color-gradient-2: linear-gradient(135deg, #0099ff 0%, #ff0054 100%);
+  --color-text: #18181b;
+  --color-muted: #a1a1aa;
 }
 
 body {
   background: var(--color-bg) !important;
   color: var(--color-text) !important;
   font-family: 'Inter', 'Poppins', 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0.01em;
 }
 
 #root {
