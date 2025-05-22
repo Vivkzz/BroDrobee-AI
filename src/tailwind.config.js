@@ -17,14 +17,13 @@ module.exports = {
         warning: '#FFB86C',    // Warm orange
       },
       borderRadius: {
-        'xl': '2rem',
-        '2xl': '2.5rem',
-        '3xl': '3rem',
+        'sm': '0.5rem',
+        'md': '0.75rem',
+        'lg': '1rem',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-in': 'slideIn 0.5s ease-in-out',
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         fadeIn: {
