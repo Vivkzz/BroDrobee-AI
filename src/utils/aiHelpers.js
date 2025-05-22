@@ -3,7 +3,7 @@
 export const processUserQuery = (query) => {
   // Convert to lowercase for easier matching
   const lowerQuery = query.toLowerCase();
-  
+
   // Check for outfit requests
   if (containsAny(lowerQuery, ['wear', 'outfit', 'clothes', 'dress', 'recommend', 'suggestion'])) {
     // Determine occasion
@@ -19,7 +19,7 @@ export const processUserQuery = (query) => {
       return { type: 'outfit_request', occasion: 'general' };
     }
   }
-  
+
   // Default to general conversation
   return { type: 'general_conversation' };
 };
@@ -29,7 +29,9 @@ const containsAny = (str, targetWords) => {
   return targetWords.some(word => str.includes(word));
 };
 
-// In a real app, you might use ML for more sophisticated query understanding
+
+// Future Scope : ?
+// In a real app, I might switch to more sophisticated model query understanding
 // For example:
 // - Sentiment analysis to understand user frustration or satisfaction
 // - Named entity recognition to identify clothing items, brands, events
