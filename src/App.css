@@ -1,3 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Curvy, trendy card style */
+.fashion-card {
+  background: var(--color-surface);
+  border-radius: 2.5rem;
+  box-shadow: 0 4px 32px 0 rgba(127, 90, 240, 0.08);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: none;
+}
+
+/* Buttons */
+.fashion-button {
+  background: var(--color-gradient);
+  color: #fff;
+  border-radius: 2rem;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border: none;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(127, 90, 240, 0.10);
+}
+
+.fashion-button:hover {
+  background: var(--color-gradient-2);
+  box-shadow: 0 4px 16px 0 rgba(127, 90, 240, 0.15);
+}
+
+/* Inputs */
+.fashion-input {
+  border-radius: 1.5rem;
+  border: 1.5px solid var(--color-primary);
+  padding: 0.75rem 1.25rem;
+  background: #fff;
+  color: var(--color-text);
+  outline: none;
+  transition: border 0.2s;
+}
+
+.fashion-input:focus {
+  border-color: var(--color-accent);
+}
+
+/* Chat bubbles */
+.bg-fashion-purple {
+  background: var(--color-gradient);
+  color: #fff;
+  border-radius: 2rem 2rem 0.5rem 2rem;
+}
+
+.bg-fashion-dark-purple {
+  background: #7f5af0;
+  color: #fff;
+}
+
+.bg-fashion-light-gray {
+  background: #f8fafc;
+}
+
+/* Trendy curvy nav */
+nav {
+  border-radius: 2rem;
+  background: var(--color-gradient-2);
+  color: #fff;
+  box-shadow: 0 2px 16px 0 rgba(44, 182, 125, 0.10);
+}
+
+/* Accent for headings */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-primary);
+  font-family: 'Poppins', 'Inter', Arial, sans-serif;
+  font-weight: 700;
+}
+
+/* Muted text */
+.text-gray-600,
+.text-muted {
+  color: var(--color-muted) !important;
+}
+
+/* Curvy modals, cards, etc. */
+.rounded-lg,
+.rounded-md,
+.rounded {
+  border-radius: 2rem !important;
+}
+
+/* Gradient accent for progress bars, etc. */
+.progress-bar {
+  background: var(--color-gradient);
+}
+
+/* Remove hard borders for a softer look */
+.border,
+.border-gray-200 {
+  border: none !important;
+}
+
+:root {
+  /* GenZ-inspired color palette */
+  --color-primary: #7f5af0;
+  /* Purple */
+  --color-secondary: #2cb67d;
+  /* Mint Green */
+  --color-accent: #f15bb5;
+  /* Pink */
+  --color-bg: #f8fafc;
+  /* Light background */
+  --color-surface: #fff1f8;
+  /* Soft surface */
+  --color-gradient: linear-gradient(135deg, #7f5af0 0%, #f15bb5 100%);
+  --color-gradient-2: linear-gradient(135deg, #2cb67d 0%, #7f5af0 100%);
+  --color-text: #16161a;
+  --color-muted: #94a1b2;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -11,9 +139,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +152,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -31,12 +162,4 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
