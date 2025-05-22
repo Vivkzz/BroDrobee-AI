@@ -1,11 +1,10 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 240 100% 99%;
     --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
@@ -14,11 +13,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 260 68% 75%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 340 100% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 260 42% 54%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 195 100% 50%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
@@ -31,13 +30,13 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 260 68% 75%;
+    --ring: 340 100% 60%;
 
-    --radius: 0.5rem;
+    --radius: 2rem;
   }
  
   .dark {
-    --background: 20 14.3% 4.1%;
+    --background: 240 10% 3.9%;
     --foreground: 0 0% 95%;
     
     --card: 24 9.8% 10%;
@@ -46,11 +45,11 @@
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
     
-    --primary: 260 68% 75%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: 340 100% 60%;
+    --primary-foreground: 0 0% 100%;
     
-    --secondary: 260 42% 54%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 195 100% 50%;
+    --secondary-foreground: 0 0% 100%;
     
     --muted: 0 0% 15%;
     --muted-foreground: 240 5% 64.9%;
@@ -63,7 +62,7 @@
     
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 260 68% 75%;
+    --ring: 340 100% 60%;
   }
 }
 
@@ -82,18 +81,26 @@
 
 @layer components {
   .fashion-card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
+    @apply bg-white/90 backdrop-blur-md rounded-[3rem] shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
   }
   
   .fashion-input {
-    @apply rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-fashion-purple focus:border-transparent;
+    @apply rounded-[2rem] border-2 border-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 backdrop-blur-sm bg-white/90;
   }
   
   .fashion-button {
-    @apply bg-fashion-purple hover:bg-fashion-deep-purple text-white font-medium py-2 px-4 rounded-md transition-colors duration-300;
+    @apply bg-gradient-to-r from-primary to-secondary text-white font-medium py-3 px-6 rounded-[2.5rem] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
   }
   
   .fashion-button-outline {
-    @apply border border-fashion-purple text-fashion-purple hover:bg-fashion-purple hover:text-white font-medium py-2 px-4 rounded-md transition-colors duration-300;
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-[2.5rem] transition-all duration-300;
+  }
+
+  .glass-effect {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
   }
 }
