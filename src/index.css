@@ -13,24 +13,24 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 340 100% 60%;
+    --primary: 346 100% 59%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 195 100% 50%;
+    --secondary: 178 100% 43%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 12 100% 77%;
+    --accent-foreground: 240 10% 3.9%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --muted: 220 13% 91%;
+    --muted-foreground: 220 9% 46%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --success: 160 100% 48%;
+    --warning: 35 100% 71%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 340 100% 60%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 346 100% 59%;
 
     --radius: 2rem;
   }
@@ -45,24 +45,24 @@
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
     
-    --primary: 340 100% 60%;
+    --primary: 346 100% 59%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 195 100% 50%;
+    --secondary: 178 100% 43%;
     --secondary-foreground: 0 0% 100%;
+    
+    --accent: 12 100% 77%;
+    --accent-foreground: 240 10% 3.9%;
     
     --muted: 0 0% 15%;
     --muted-foreground: 240 5% 64.9%;
     
-    --accent: 12 6.5% 15.1%;
-    --accent-foreground: 0 0% 98%;
-    
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 85.7% 97.3%;
+    --success: 160 100% 48%;
+    --warning: 35 100% 71%;
     
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 340 100% 60%;
+    --ring: 346 100% 59%;
   }
 }
 
@@ -81,15 +81,15 @@
 
 @layer components {
   .fashion-card {
-    @apply bg-white/90 backdrop-blur-md rounded-[3rem] shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+    @apply bg-white/80 backdrop-blur-md rounded-[3rem] shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-white/20;
   }
   
   .fashion-input {
-    @apply rounded-[2rem] border-2 border-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 backdrop-blur-sm bg-white/90;
+    @apply rounded-[2rem] border-2 border-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 backdrop-blur-sm bg-white/80;
   }
   
   .fashion-button {
-    @apply bg-gradient-to-r from-primary to-secondary text-white font-medium py-3 px-6 rounded-[2.5rem] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+    @apply bg-gradient-to-r from-primary via-accent to-secondary text-white font-medium py-3 px-6 rounded-[2.5rem] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:opacity-90;
   }
   
   .fashion-button-outline {
@@ -97,10 +97,27 @@
   }
 
   .glass-effect {
-    @apply bg-white/70 backdrop-blur-md border border-white/20;
+    @apply bg-white/60 backdrop-blur-md border border-white/20;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
+  }
+
+  .gradient-border {
+    @apply relative rounded-[3rem] p-[2px] bg-gradient-to-r from-primary via-accent to-secondary;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-[3rem] bg-background -z-10;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,46,99,0.3)];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
   }
 }
