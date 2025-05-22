@@ -34,12 +34,16 @@ const ChatInterface = () => {
     try {
       // Generate recommendation based on user message
       const recommendation = await generateRecommendation(input, styleProfile, wardrobe);
-      setMessages(prev => [...prev, {
-        role: 'system',
-        content: recommendation.text,
-        items: recommendation.items || []
-      }]);
-      setIsTyping(false);
+
+      // Add AI response
+      setTimeout(() => {
+        setMessages(prev => [...prev, {
+          role: 'system',
+          content: recommendation.text,
+          items: recommendation.items || []
+        }]);
+        setIsTyping(false);
+      }, 1000);
     } catch (error) {
       console.error('Error generating recommendation:', error);
       setMessages(prev => [...prev, {
@@ -53,28 +57,36 @@ const ChatInterface = () => {
 
   return (
     <div className="flex flex-col h-[500px]">
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 flex flex-col">
-        {messages.map((msg, idx) => (
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.map((message, index) => (
           <div
-            key={idx}
-            className={`p-3 my-2 rounded-lg max-w-xs break-words ${msg.role === 'user'
-                ? 'bg-blue-100 self-end ml-auto'
-                : 'bg-gray-100 self-start mr-auto'
-              }`}
+            key={index}
+            className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
-            {msg.content}
-            {msg.items && msg.items.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-2">
-                {msg.items.map(item => (
-                  <div key={item.id || item.name} className="flex flex-col items-center border rounded p-2 bg-gray-50">
-                    {item.image && (
-                      <img src={item.image} alt={item.name} className="w-12 h-12 object-cover rounded mb-1" />
-                    )}
-                    <span className="text-xs">{item.name}</span>
-                  </div>
-                ))}
-              </div>
-            )}
+            <div
+              className={`max-w-[75%] rounded-lg p-3 ${message.role === 'user'
+                ? 'bg-fashion-purple text-white rounded-br-none'
+                : 'bg-gray-100 text-gray-800 rounded-bl-none'
+                }`}
+            >
+              <div>{message.content}</div>
+              {message.items && message.items.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {message.items.map((item, i) => (
+                    <div key={i} className="flex flex-col items-center">
+                      <div className="w-16 h-16 bg-white rounded-md overflow-hidden border border-gray-200">
+                        <img
+                          src={item.image_url}
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <span className="text-xs mt-1 text-center">{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         ))}
         {isTyping && (
