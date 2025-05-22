@@ -40,5 +40,5 @@ function buildGeminiPrompt(userQuery, styleProfile, wardrobeData) {
     .map(([cat, items]) => `${cat}: ${items.map(i => i.name).join(', ')}`)
     .join('\n');
   let profile = styleProfile ? JSON.stringify(styleProfile) : 'Not provided';
-  return `You are a fashion AI assistant.\n\nUser Query: ${userQuery}\n\nUser Style Profile: ${profile}\n\nUser Wardrobe:\n${wardrobeList}\n\nBased on the wardrobe and style profile, recommend the best possible outfit for the user's query. Be specific and friendly. List the recommended items. Dont give much explaination givve simple and short reply! If the wardrobe is empty, politely ask the user to add items.`;
+  return `You are a fashion AI assistant.\n\nUser Query: ${userQuery}\n\nUser Style Profile: ${profile}\n\nUser Wardrobe:\n${wardrobeList}\n\nBased on the wardrobe and style profile, recommend the best possible outfit for the user's query. Be specific and friendly. List the recommended items. give very short explainationon why you recommend it at the end and give simple and short reply! also do not reply back in bold letters`;
 }
