@@ -20,6 +20,9 @@ export type Database = {
           style_preferences: string[] | null
           undertone: string | null
           updated_at: string
+          gender: string | null
+          occupation: string | null
+          occupation_subcategory: string | null
         }
         Insert: {
           color_preferences?: string[] | null
@@ -31,6 +34,9 @@ export type Database = {
           style_preferences?: string[] | null
           undertone?: string | null
           updated_at?: string
+          gender?: string | null
+          occupation?: string | null
+          occupation_subcategory?: string | null
         }
         Update: {
           color_preferences?: string[] | null
@@ -42,6 +48,9 @@ export type Database = {
           style_preferences?: string[] | null
           undertone?: string | null
           updated_at?: string
+          gender?: string | null
+          occupation?: string | null
+          occupation_subcategory?: string | null
         }
         Relationships: []
       }
