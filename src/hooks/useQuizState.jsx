@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/components/ui/use-toast";
@@ -6,6 +5,8 @@ import { toast } from "@/components/ui/use-toast";
 export const useQuizState = (user, onComplete) => {
   const [step, setStep] = useState(0);
   const [quizData, setQuizData] = useState({
+    gender: '',
+    occupation: '',
     skinTone: '',
     undertone: '',
     stylePreferences: [],
@@ -64,6 +65,8 @@ export const useQuizState = (user, onComplete) => {
       // Prepare profile data
       const profileData = {
         id: user.id,
+        gender: quizData.gender,
+        occupation: quizData.occupation,
         skin_tone: quizData.skinTone,
         undertone: quizData.undertone,
         style_preferences: quizData.stylePreferences,

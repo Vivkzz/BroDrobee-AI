@@ -1,4 +1,3 @@
-
 export type Profile = {
   id: string;
   skin_tone: string | null;
@@ -7,6 +6,8 @@ export type Profile = {
   occasion_preferences: string[] | null;
   color_preferences: string[] | null;
   selfie_url: string | null;
+  gender: string | null;
+  occupation: string | null;
   created_at: string;
   updated_at: string;
 };

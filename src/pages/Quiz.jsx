@@ -8,6 +8,30 @@ import { useQuizState } from '../hooks/useQuizState';
 // Quiz steps data
 const QUIZ_STEPS = [
   {
+    title: "What's your gender?",
+    field: "gender",
+    type: "single",
+    options: [
+      { value: "male", label: "Male" },
+      { value: "female", label: "Female" },
+      { value: "non-binary", label: "Non-binary" },
+      { value: "prefer-not-to-say", label: "Prefer not to say" }
+    ]
+  },
+  {
+    title: "What's your occupation?",
+    field: "occupation",
+    type: "single",
+    options: [
+      { value: "student", label: "Student" },
+      { value: "professional", label: "Professional" },
+      { value: "creative", label: "Creative/Artist" },
+      { value: "entrepreneur", label: "Entrepreneur" },
+      { value: "service", label: "Service Industry" },
+      { value: "other", label: "Other" }
+    ]
+  },
+  {
     title: "What's your skin tone?",
     field: "skinTone",
     type: "single",
