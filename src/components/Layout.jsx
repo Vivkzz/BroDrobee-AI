@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet, Link, useNavigate } from 'react-router-dom';
+import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { useUser } from '../App.tsx';
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/components/ui/use-toast";
@@ -7,6 +7,7 @@ import { toast } from "@/components/ui/use-toast";
 const Layout = () => {
   const { user } = useUser();
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Redirect to login if not authenticated
   useEffect(() => {
@@ -37,6 +38,10 @@ const Layout = () => {
     }
   };
 
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Side Navigation */}
@@ -48,15 +53,33 @@ const Layout = () => {
         <nav className="flex flex-row md:flex-col justify-around md:justify-start md:space-y-4">
           <Link
             to="/dashboard"
-            className="p-2 hover:bg-fashion-dark-purple rounded-md transition-colors duration-200"
+            className={`p-2 hover:bg-fashion-dark-purple rounded-md transition-colors duration-200 ${
+              isActive('/dashboard')
+                ? 'bg-fashion-purple text-white'
+                : 'text-gray-600 hover:bg-gray-100'
+            }`}
           >
             Dashboard
           </Link>
           <Link
             to="/wardrobe"
-            className="p-2 hover:bg-fashion-dark-purple rounded-md transition-colors duration-200"
+            className={`p-2 hover:bg-fashion-dark-purple rounded-md transition-colors duration-200 ${
+              isActive('/wardrobe')
+                ? 'bg-fashion-purple text-white'
+                : 'text-gray-600 hover:bg-gray-100'
+            }`}
           >
             My Wardrobe
+          </Link>
+          <Link
+            to="/profile"
+            className={`p-2 hover:bg-fashion-dark-purple rounded-md transition-colors duration-200 ${
+              isActive('/profile')
+                ? 'bg-fashion-purple text-white'
+                : 'text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            Profile
           </Link>
           <button
             onClick={handleSignOut}

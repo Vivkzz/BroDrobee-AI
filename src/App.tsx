@@ -1,11 +1,10 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect, createContext, useContext } from "react";
-import { User, Session } from '@supabase/supabase-js';
+import { User, Session } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 import { Profile } from "./types/supabase";
 import Index from "./pages/Index";
@@ -14,6 +13,7 @@ import Layout from "./components/Layout";
 import Quiz from "./pages/Quiz";
 import Dashboard from "./pages/Dashboard";
 import Wardrobe from "./pages/Wardrobe";
+import Profile from "./pages/Profile";
 import AuthPage from "./pages/AuthPage";
 
 // Create context for global user state
@@ -45,25 +45,25 @@ const App = () => {
 
   useEffect(() => {
     // Set up auth state listener FIRST
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, currentSession) => {
-        setSession(currentSession);
-        setUser(currentSession?.user ?? null);
-        
-        // If session exists, fetch user's style profile
-        if (currentSession?.user) {
-          setTimeout(() => {
-            fetchUserProfile(currentSession.user.id);
-          }, 0);
-        }
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, currentSession) => {
+      setSession(currentSession);
+      setUser(currentSession?.user ?? null);
+
+      // If session exists, fetch user's style profile
+      if (currentSession?.user) {
+        setTimeout(() => {
+          fetchUserProfile(currentSession.user.id);
+        }, 0);
       }
-    );
+    });
 
     // THEN check for existing session
     supabase.auth.getSession().then(({ data: { session: currentSession } }) => {
       setSession(currentSession);
       setUser(currentSession?.user ?? null);
-      
+
       if (currentSession?.user) {
         fetchUserProfile(currentSession.user.id);
       }
@@ -75,13 +75,13 @@ const App = () => {
   const fetchUserProfile = async (userId: string) => {
     try {
       const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', userId)
+        .from("profiles")
+        .select("*")
+        .eq("id", userId)
         .single();
 
       if (error) {
-        console.error('Error fetching profile:', error);
+        console.error("Error fetching profile:", error);
         return;
       }
 
@@ -89,13 +89,22 @@ const App = () => {
         setStyleProfile(data as Profile);
       }
     } catch (error) {
-      console.error('Profile fetch error:', error);
+      console.error("Profile fetch error:", error);
     }
   };
-  
+
   return (
     <QueryClientProvider client={queryClient}>
-      <UserContext.Provider value={{ user, session, setUser, setSession, styleProfile, setStyleProfile }}>
+      <UserContext.Provider
+        value={{
+          user,
+          session,
+          setUser,
+          setSession,
+          styleProfile,
+          setStyleProfile,
+        }}
+      >
         <TooltipProvider>
           <Toaster />
           <Sonner />
@@ -107,6 +116,7 @@ const App = () => {
               <Route element={<Layout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/wardrobe" element={<Wardrobe />} />
+                <Route path="/profile" element={<Profile />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
