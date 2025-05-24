@@ -11,7 +11,6 @@ export type Database = {
     Tables: {
       profiles: {
         Row: {
-          color_preferences: string[] | null
           created_at: string
           id: string
           occasion_preferences: string[] | null
@@ -25,7 +24,6 @@ export type Database = {
           occupation_subcategory: string | null
         }
         Insert: {
-          color_preferences?: string[] | null
           created_at?: string
           id: string
           occasion_preferences?: string[] | null
@@ -39,7 +37,6 @@ export type Database = {
           occupation_subcategory?: string | null
         }
         Update: {
-          color_preferences?: string[] | null
           created_at?: string
           id?: string
           occasion_preferences?: string[] | null

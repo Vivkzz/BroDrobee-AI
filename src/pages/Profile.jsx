@@ -17,7 +17,6 @@ const Profile = () => {
     undertone: '',
     stylePreferences: [],
     occasionPreferences: [],
-    colorPreferences: [],
   });
 
   useEffect(() => {
@@ -36,7 +35,6 @@ const Profile = () => {
         undertone: styleProfile.undertone || '',
         stylePreferences: styleProfile.style_preferences || [],
         occasionPreferences: styleProfile.occasion_preferences || [],
-        colorPreferences: styleProfile.color_preferences || [],
       });
     }
     setLoading(false);
@@ -86,7 +84,6 @@ const Profile = () => {
         undertone: formData.undertone,
         style_preferences: formData.stylePreferences,
         occasion_preferences: formData.occasionPreferences,
-        color_preferences: formData.colorPreferences,
       };
 
       const { data, error } = await supabase
@@ -238,46 +235,6 @@ const Profile = () => {
                     }`}
                   >
                     {option.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Color Preferences */}
-            <div className="fashion-card p-6">
-              <h2 className="text-xl font-semibold mb-4">Color Preferences</h2>
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { value: 'black', color: '#000000' },
-                  { value: 'white', color: '#FFFFFF' },
-                  { value: 'gray', color: '#808080' },
-                  { value: 'navy', color: '#000080' },
-                  { value: 'blue', color: '#0000FF' },
-                  { value: 'green', color: '#008000' },
-                  { value: 'red', color: '#FF0000' },
-                  { value: 'yellow', color: '#FFFF00' },
-                  { value: 'purple', color: '#800080' },
-                  { value: 'pink', color: '#FFC0CB' },
-                  { value: 'orange', color: '#FFA500' },
-                  { value: 'brown', color: '#A52A2A' },
-                ].map(({ value, color }) => (
-                  <button
-                    key={value}
-                    type="button"
-                    onClick={() => handleMultiSelect('colorPreferences', value)}
-                    className={`p-4 rounded-lg border-2 transition-all ${
-                      formData.colorPreferences.includes(value)
-                        ? 'border-fashion-purple bg-fashion-purple bg-opacity-10'
-                        : 'border-gray-200 hover:border-fashion-purple'
-                    }`}
-                  >
-                    <div className="flex items-center space-x-2">
-                      <div
-                        className="w-6 h-6 rounded-full border border-gray-300"
-                        style={{ backgroundColor: color }}
-                      />
-                      <span>{value.charAt(0).toUpperCase() + value.slice(1)}</span>
-                    </div>
                   </button>
                 ))}
               </div>

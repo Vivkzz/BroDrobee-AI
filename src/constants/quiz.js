@@ -173,25 +173,6 @@ export const QUIZ_STEPS = [
     ]
   },
   {
-    title: "What colors do you like to wear?",
-    field: "colorPreferences",
-    type: "multi",
-    options: [
-      { value: "black", label: "Black", color: "#000000" },
-      { value: "white", label: "White", color: "#FFFFFF" },
-      { value: "gray", label: "Gray", color: "#808080" },
-      { value: "navy", label: "Navy", color: "#000080" },
-      { value: "blue", label: "Blue", color: "#0000FF" },
-      { value: "green", label: "Green", color: "#008000" },
-      { value: "red", label: "Red", color: "#FF0000" },
-      { value: "yellow", label: "Yellow", color: "#FFFF00" },
-      { value: "purple", label: "Purple", color: "#800080" },
-      { value: "pink", label: "Pink", color: "#FFC0CB" },
-      { value: "orange", label: "Orange", color: "#FFA500" },
-      { value: "brown", label: "Brown", color: "#A52A2A" },
-    ]
-  },
-  {
     title: "Upload a selfie (optional)",
     field: "selfieUrl",
     type: "file",
