@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../App.tsx';
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/components/ui/use-toast";
+import { QUIZ_STEPS } from '../constants/quiz';
 
 const Profile = () => {
   const { user, styleProfile, setStyleProfile } = useUser();
