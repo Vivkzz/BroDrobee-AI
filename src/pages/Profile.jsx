@@ -11,6 +11,7 @@ const Profile = () => {
   const [formData, setFormData] = useState({
     gender: '',
     occupation: '',
+    occupation_subcategory: '',
     skinTone: '',
     undertone: '',
     stylePreferences: [],
@@ -29,6 +30,7 @@ const Profile = () => {
       setFormData({
         gender: styleProfile.gender || '',
         occupation: styleProfile.occupation || '',
+        occupation_subcategory: styleProfile.occupation_subcategory || '',
         skinTone: styleProfile.skin_tone || '',
         undertone: styleProfile.undertone || '',
         stylePreferences: styleProfile.style_preferences || [],
@@ -42,7 +44,16 @@ const Profile = () => {
   const handleSingleSelect = (field, value) => {
     setFormData(prev => ({
       ...prev,
-      [field]: value
+      [field]: value,
+      // Reset subcategory when main category changes
+      ...(field === 'occupation' && { occupation_subcategory: '' })
+    }));
+  };
+
+  const handleSubcategorySelect = (value) => {
+    setFormData(prev => ({
+      ...prev,
+      occupation_subcategory: value
     }));
   };
 
@@ -69,6 +80,7 @@ const Profile = () => {
         id: user.id,
         gender: formData.gender,
         occupation: formData.occupation,
+        occupation_subcategory: formData.occupation_subcategory,
         skin_tone: formData.skinTone,
         undertone: formData.undertone,
         style_preferences: formData.stylePreferences,
@@ -139,21 +151,52 @@ const Profile = () => {
             {/* Occupation Selection */}
             <div className="fashion-card p-6">
               <h2 className="text-xl font-semibold mb-4">Occupation</h2>
-              <div className="grid grid-cols-2 gap-4">
-                {['student', 'professional', 'creative', 'entrepreneur', 'service', 'other'].map((option) => (
-                  <button
-                    key={option}
-                    type="button"
-                    onClick={() => handleSingleSelect('occupation', option)}
-                    className={`p-4 rounded-lg border-2 transition-all ${
-                      formData.occupation === option
-                        ? 'border-fashion-purple bg-fashion-purple bg-opacity-10'
-                        : 'border-gray-200 hover:border-fashion-purple'
-                    }`}
-                  >
-                    {option.charAt(0).toUpperCase() + option.slice(1).replace(/-/g, ' ')}
-                  </button>
-                ))}
+              <div className="space-y-6">
+                {/* Main Categories */}
+                <div>
+                  <h3 className="text-lg font-medium mb-3">Main Category</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {QUIZ_STEPS[1].options.map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => handleSingleSelect('occupation', option.value)}
+                        className={`p-4 rounded-lg border-2 transition-all ${
+                          formData.occupation === option.value
+                            ? 'border-fashion-purple bg-fashion-purple bg-opacity-10'
+                            : 'border-gray-200 hover:border-fashion-purple'
+                        }`}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Subcategories */}
+                {formData.occupation && (
+                  <div>
+                    <h3 className="text-lg font-medium mb-3">Specific Role</h3>
+                    <div className="grid grid-cols-2 gap-4">
+                      {QUIZ_STEPS[1].options
+                        .find(opt => opt.value === formData.occupation)
+                        ?.subcategories.map((subcat) => (
+                          <button
+                            key={subcat.value}
+                            type="button"
+                            onClick={() => handleSubcategorySelect(subcat.value)}
+                            className={`p-4 rounded-lg border-2 transition-all ${
+                              formData.occupation_subcategory === subcat.value
+                                ? 'border-fashion-purple bg-fashion-purple bg-opacity-10'
+                                : 'border-gray-200 hover:border-fashion-purple'
+                            }`}
+                          >
+                            {subcat.label}
+                          </button>
+                        ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

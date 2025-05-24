@@ -8,6 +8,7 @@ export type Profile = {
   selfie_url: string | null;
   gender: string | null;
   occupation: string | null;
+  occupation_subcategory: string | null;
   created_at: string;
   updated_at: string;
 };

@@ -23,12 +23,106 @@ const QUIZ_STEPS = [
     field: "occupation",
     type: "single",
     options: [
-      { value: "student", label: "Student" },
-      { value: "professional", label: "Professional" },
-      { value: "creative", label: "Creative/Artist" },
-      { value: "entrepreneur", label: "Entrepreneur" },
-      { value: "service", label: "Service Industry" },
-      { value: "other", label: "Other" }
+      {
+        value: "student",
+        label: "Student",
+        subcategories: [
+          { value: "high-school", label: "High School" },
+          { value: "undergraduate", label: "Undergraduate" },
+          { value: "graduate", label: "Graduate" },
+          { value: "phd", label: "PhD" }
+        ]
+      },
+      {
+        value: "office-worker",
+        label: "Office Worker",
+        subcategories: [
+          { value: "it-tech", label: "IT/Tech" },
+          { value: "finance", label: "Finance/Banking" },
+          { value: "marketing", label: "Marketing" },
+          { value: "hr", label: "Human Resources" },
+          { value: "admin", label: "Administration" },
+          { value: "sales", label: "Sales" },
+          { value: "customer-service", label: "Customer Service" }
+        ]
+      },
+      {
+        value: "factory-worker",
+        label: "Factory Worker",
+        subcategories: [
+          { value: "manufacturing", label: "Manufacturing" },
+          { value: "assembly", label: "Assembly Line" },
+          { value: "quality-control", label: "Quality Control" },
+          { value: "warehouse", label: "Warehouse" },
+          { value: "logistics", label: "Logistics" }
+        ]
+      },
+      {
+        value: "business",
+        label: "Business/Entrepreneur",
+        subcategories: [
+          { value: "retail", label: "Retail Business" },
+          { value: "restaurant", label: "Restaurant/Food Service" },
+          { value: "consulting", label: "Consulting" },
+          { value: "real-estate", label: "Real Estate" },
+          { value: "ecommerce", label: "E-commerce" },
+          { value: "startup", label: "Startup" }
+        ]
+      },
+      {
+        value: "creative",
+        label: "Creative/Arts",
+        subcategories: [
+          { value: "design", label: "Design" },
+          { value: "music", label: "Music" },
+          { value: "writing", label: "Writing/Content" },
+          { value: "photography", label: "Photography" },
+          { value: "fashion", label: "Fashion" },
+          { value: "art", label: "Fine Arts" }
+        ]
+      },
+      {
+        value: "healthcare",
+        label: "Healthcare",
+        subcategories: [
+          { value: "doctor", label: "Doctor" },
+          { value: "nurse", label: "Nurse" },
+          { value: "therapist", label: "Therapist" },
+          { value: "pharmacy", label: "Pharmacy" },
+          { value: "fitness", label: "Fitness/Wellness" }
+        ]
+      },
+      {
+        value: "education",
+        label: "Education",
+        subcategories: [
+          { value: "teacher", label: "Teacher" },
+          { value: "professor", label: "Professor" },
+          { value: "trainer", label: "Trainer" },
+          { value: "counselor", label: "Counselor" }
+        ]
+      },
+      {
+        value: "service",
+        label: "Service Industry",
+        subcategories: [
+          { value: "hospitality", label: "Hospitality" },
+          { value: "food-service", label: "Food Service" },
+          { value: "retail-service", label: "Retail Service" },
+          { value: "beauty", label: "Beauty/Spa" }
+        ]
+      },
+      {
+        value: "other",
+        label: "Other",
+        subcategories: [
+          { value: "government", label: "Government" },
+          { value: "non-profit", label: "Non-profit" },
+          { value: "freelance", label: "Freelance" },
+          { value: "unemployed", label: "Unemployed" },
+          { value: "retired", label: "Retired" }
+        ]
+      }
     ]
   },
   {

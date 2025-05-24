@@ -7,6 +7,7 @@ export const useQuizState = (user, onComplete) => {
   const [quizData, setQuizData] = useState({
     gender: '',
     occupation: '',
+    occupation_subcategory: '',
     skinTone: '',
     undertone: '',
     stylePreferences: [],
@@ -18,7 +19,16 @@ export const useQuizState = (user, onComplete) => {
   const handleSingleSelect = (field, value) => {
     setQuizData(prev => ({
       ...prev,
-      [field]: value
+      [field]: value,
+      // Reset subcategory when main category changes
+      ...(field === 'occupation' && { occupation_subcategory: '' })
+    }));
+  };
+  
+  const handleSubcategorySelect = (value) => {
+    setQuizData(prev => ({
+      ...prev,
+      occupation_subcategory: value
     }));
   };
   
@@ -67,6 +77,7 @@ export const useQuizState = (user, onComplete) => {
         id: user.id,
         gender: quizData.gender,
         occupation: quizData.occupation,
+        occupation_subcategory: quizData.occupation_subcategory,
         skin_tone: quizData.skinTone,
         undertone: quizData.undertone,
         style_preferences: quizData.stylePreferences,
@@ -116,6 +127,7 @@ export const useQuizState = (user, onComplete) => {
     step,
     quizData,
     handleSingleSelect,
+    handleSubcategorySelect,
     handleMultiSelect,
     handleSelfieChange,
     handleNextStep,
